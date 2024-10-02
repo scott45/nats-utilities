@@ -90,6 +90,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build image
+        build-args: GH_TOKEN=${{ secrets.GH_TOKEN }}
         run: |
           ls -la 
           docker build . -f Dockerfile -t nats/dev:latest
