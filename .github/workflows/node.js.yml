@@ -6,7 +6,7 @@
 name: Node.js CI
 
 env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_SCOPE: "@frmscoe"
   NPM_REGISTRY: "https://npm.pkg.github.com/"
   NODE_ENV: 'test'
@@ -90,7 +90,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build image
-        build-args: GH_TOKEN=${{ secrets.GH_TOKEN }}
         run: |
           ls -la 
           docker build . -f Dockerfile -t nats/dev:latest
