@@ -84,6 +84,8 @@ jobs:
     runs-on: ubuntu-latest
     name: check docker build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: build the docker image
         id: build-docker-image
         args: GH_TOKEN=${{ secrets.GH_TOKEN }}
